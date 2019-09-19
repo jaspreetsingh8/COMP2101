@@ -1,4 +1,4 @@
-#!/bin/bash
+,,#!/bin/bash
 #
 # this script generates a report of the files on the system that have the setuid permission bit turned on
 # it is for the lab1 exercise
@@ -11,5 +11,17 @@
 
 echo "Setuid files:"
 echo "============="
-find / -type f -executable -perm -4000 -ls 2>/dev/null | sort -k 3
-echo ""
+find / -type f -executable -perm -4000 -ls 2>/dev/null |
+      sort -k 3
+echo "============="
+echo "Task 1 Find Setgid files:"
+echo "============="
+find / -type f -executable -perm -2000 -ls 2>/dev/null |
+      sort -k 3
+echo "============="
+echo "Task 2 to display the 10 largest files in the system..."
+echo "============="
+find /home/ -type f -exec ls -l --block-size=M {} + |
+      sort -hr -k5 |
+      head -n 10 |
+      cut -d' ' -f9,5,3
