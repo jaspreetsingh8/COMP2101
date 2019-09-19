@@ -1,4 +1,4 @@
-,,#!/bin/bash
+#!/bin/bash
 #
 # this script generates a report of the files on the system that have the setuid permission bit turned on
 # it is for the lab1 exercise
